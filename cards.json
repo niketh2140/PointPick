@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "updated": "2026-11-20",
  "cards": [
   {
@@ -12,6 +12,7 @@
    "annualFee": 95,
    "rates": {
     "dining": 3,
+    "gas": 3,
     "online": 3,
     "streaming": 3,
     "travel": 2,
@@ -20,12 +21,13 @@
    "credits": [
     {
      "title": "Chase Travel hotel credit",
-     "amount": 50,
+     "amount": 100,
      "period": "annual",
-     "note": ""
+     "note": "Per Chase's page; some sites still list $50"
     }
    ],
-   "status": "unverified"
+   "status": "partial",
+   "source": "https://www.chase.com/sapphire-cards/personal/preferred"
   },
   {
    "id": "cff",
@@ -427,16 +429,16 @@
    },
    "credits": [
     {
-     "title": "Uber Cash",
-     "amount": 10,
-     "period": "monthly",
-     "note": ""
-    },
-    {
      "title": "Dining credit",
      "amount": 10,
      "period": "monthly",
-     "note": ""
+     "note": "Grubhub, Buffalo Wild Wings, Five Guys, Cheesecake Factory, Wonder"
+    },
+    {
+     "title": "Uber Cash",
+     "amount": 10,
+     "period": "monthly",
+     "note": "U.S. rides and Uber Eats"
     },
     {
      "title": "Resy credit",
@@ -448,10 +450,11 @@
      "title": "Dunkin' credit",
      "amount": 7,
      "period": "monthly",
-     "note": ""
+     "note": "U.S. locations"
     }
    ],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.americanexpress.com/us/credit-cards/card/gold-card/"
   },
   {
    "id": "amexplat",
@@ -1141,13 +1144,20 @@
    },
    "credits": [
     {
-     "title": "Travel credit",
+     "title": "Capital One Travel credit",
      "amount": 300,
      "period": "annual",
-     "note": "Via Capital One Travel"
+     "note": "Bookings via Capital One Travel"
+    },
+    {
+     "title": "Anniversary bonus (10,000 miles)",
+     "amount": 100,
+     "period": "annual",
+     "note": "Approx. value at 1\u00a2 per mile"
     }
    ],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.capitalone.com/credit-cards/venture-x/"
   },
   {
    "id": "c1venture",
