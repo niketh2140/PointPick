@@ -1,0 +1,715 @@
+{
+ "version": 1,
+ "updated": "2026-11-20",
+ "cards": [
+  {
+   "id": "csp",
+   "name": "Sapphire Preferred",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.25,
+   "annualFee": 95,
+   "rates": {
+    "dining": 3,
+    "online": 3,
+    "streaming": 3,
+    "travel": 2,
+    "transit": 2
+   },
+   "credits": [
+    {
+     "title": "Chase Travel hotel credit",
+     "amount": 50,
+     "period": "annual",
+     "note": "Hotels booked via Chase Travel"
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "csr",
+   "name": "Sapphire Reserve",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.5,
+   "annualFee": 795,
+   "rates": {
+    "dining": 3,
+    "travel": 4,
+    "transit": 3
+   },
+   "credits": [
+    {
+     "title": "Sapphire Exclusive Tables dining credit",
+     "amount": 150,
+     "period": "semiannual",
+     "note": "OpenTable Exclusive Tables"
+    },
+    {
+     "title": "StubHub credit",
+     "amount": 150,
+     "period": "semiannual",
+     "note": ""
+    },
+    {
+     "title": "Chase Travel hotel credit (The Edit)",
+     "amount": 250,
+     "period": "semiannual",
+     "note": "Prepaid hotel bookings"
+    },
+    {
+     "title": "Peloton credit",
+     "amount": 10,
+     "period": "monthly",
+     "note": ""
+    },
+    {
+     "title": "DoorDash credits",
+     "amount": 35,
+     "period": "monthly",
+     "note": "Approx. combined value"
+    }
+   ],
+   "status": "partial",
+   "source": "https://www.chase.com/sapphire-cards/personal/reserve"
+  },
+  {
+   "id": "cff",
+   "name": "Freedom Flex",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 3,
+    "drugstores": 3,
+    "travel": 1
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "cfu",
+   "name": "Freedom Unlimited",
+   "issuer": "Chase",
+   "baseRate": 1.5,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 3,
+    "drugstores": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "inkbp",
+   "name": "Ink Business Preferred",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.25,
+   "annualFee": 95,
+   "rates": {
+    "travel": 3,
+    "online": 3,
+    "streaming": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "inkcash",
+   "name": "Ink Business Cash",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "gas": 5,
+    "online": 5,
+    "dining": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "amexgold",
+   "name": "Gold Card",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 325,
+   "rates": {
+    "dining": 4,
+    "groceries": 4,
+    "travel": 3
+   },
+   "credits": [
+    {
+     "title": "Uber Cash",
+     "amount": 10,
+     "period": "monthly",
+     "note": "Uber & Uber Eats"
+    },
+    {
+     "title": "Dining credit",
+     "amount": 10,
+     "period": "monthly",
+     "note": "Grubhub, Cheesecake Factory & more"
+    },
+    {
+     "title": "Resy credit",
+     "amount": 50,
+     "period": "semiannual",
+     "note": ""
+    },
+    {
+     "title": "Dunkin' credit",
+     "amount": 7,
+     "period": "monthly",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "amexplat",
+   "name": "Platinum Card",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 895,
+   "rates": {
+    "travel": 5
+   },
+   "credits": [
+    {
+     "title": "Airline fee credit",
+     "amount": 200,
+     "period": "annual",
+     "note": "One selected airline"
+    },
+    {
+     "title": "Uber Cash",
+     "amount": 15,
+     "period": "monthly",
+     "note": ""
+    },
+    {
+     "title": "Digital entertainment credit",
+     "amount": 20,
+     "period": "monthly",
+     "note": ""
+    },
+    {
+     "title": "CLEAR Plus credit",
+     "amount": 219,
+     "period": "annual",
+     "note": ""
+    },
+    {
+     "title": "Walmart+ credit",
+     "amount": 13,
+     "period": "monthly",
+     "note": ""
+    },
+    {
+     "title": "Hotel credit",
+     "amount": 300,
+     "period": "semiannual",
+     "note": "Fine Hotels + Resorts / Hotel Collection via Amex Travel"
+    }
+   ],
+   "status": "partial",
+   "source": "https://www.nerdwallet.com/article/credit-cards/amex-platinum-hikes-fee-adds-hundreds-in-credits"
+  },
+  {
+   "id": "amexgreen",
+   "name": "Green Card",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 150,
+   "rates": {
+    "dining": 3,
+    "travel": 3,
+    "transit": 3
+   },
+   "credits": [
+    {
+     "title": "CLEAR Plus credit",
+     "amount": 189,
+     "period": "annual",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "amexbcp",
+   "name": "Blue Cash Preferred",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 95,
+   "rates": {
+    "groceries": 6,
+    "streaming": 6,
+    "transit": 3,
+    "gas": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "amexbce",
+   "name": "Blue Cash Everyday",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "groceries": 3,
+    "online": 3,
+    "gas": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "amexdelta",
+   "name": "Delta SkyMiles Gold",
+   "issuer": "American Express",
+   "baseRate": 1,
+   "pointValueCents": 1.1,
+   "annualFee": 150,
+   "rates": {
+    "dining": 2,
+    "groceries": 2,
+    "travel": 2
+   },
+   "credits": [
+    {
+     "title": "Delta Stays credit",
+     "amount": 200,
+     "period": "annual",
+     "note": ""
+    },
+    {
+     "title": "Resy dining credit",
+     "amount": 10,
+     "period": "monthly",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "hilton",
+   "name": "Hilton Honors Surpass",
+   "issuer": "American Express",
+   "baseRate": 3,
+   "pointValueCents": 0.5,
+   "annualFee": 150,
+   "rates": {
+    "dining": 6,
+    "gas": 6,
+    "groceries": 6,
+    "travel": 6
+   },
+   "credits": [
+    {
+     "title": "Hilton resort credit",
+     "amount": 50,
+     "period": "quarterly",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "c1venx",
+   "name": "Venture X",
+   "issuer": "Capital One",
+   "baseRate": 2,
+   "pointValueCents": 1.0,
+   "annualFee": 395,
+   "rates": {
+    "travel": 5
+   },
+   "credits": [
+    {
+     "title": "Travel credit",
+     "amount": 300,
+     "period": "annual",
+     "note": "Via Capital One Travel"
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "c1venture",
+   "name": "Venture",
+   "issuer": "Capital One",
+   "baseRate": 2,
+   "pointValueCents": 1.0,
+   "annualFee": 95,
+   "rates": {
+    "travel": 5
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "c1savor",
+   "name": "SavorOne",
+   "issuer": "Capital One",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 3,
+    "groceries": 3,
+    "streaming": 3,
+    "travel": 1
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "c1quick",
+   "name": "Quicksilver",
+   "issuer": "Capital One",
+   "baseRate": 1.5,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {},
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "citidc",
+   "name": "Double Cash",
+   "issuer": "Citi",
+   "baseRate": 2,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {},
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "citipre",
+   "name": "Strata Premier",
+   "issuer": "Citi",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 95,
+   "rates": {
+    "dining": 3,
+    "groceries": 3,
+    "gas": 3,
+    "travel": 3,
+    "transit": 3
+   },
+   "credits": [
+    {
+     "title": "Hotel benefit",
+     "amount": 100,
+     "period": "annual",
+     "note": "Booked via cititravel.com"
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "citicustom",
+   "name": "Custom Cash",
+   "issuer": "Citi",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 5
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "costco",
+   "name": "Costco Anywhere Visa",
+   "issuer": "Citi",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "gas": 4,
+    "dining": 3,
+    "travel": 3,
+    "groceries": 1
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "discoverit",
+   "name": "Discover it Cash Back",
+   "issuer": "Discover",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "gas": 5,
+    "groceries": 5
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "discoverml",
+   "name": "Discover it Miles",
+   "issuer": "Discover",
+   "baseRate": 1.5,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {},
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "wfactive",
+   "name": "Active Cash",
+   "issuer": "Wells Fargo",
+   "baseRate": 2,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {},
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "wfautograph",
+   "name": "Autograph",
+   "issuer": "Wells Fargo",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 3,
+    "travel": 3,
+    "gas": 3,
+    "transit": 3,
+    "streaming": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "boa",
+   "name": "Customized Cash Rewards",
+   "issuer": "Bank of America",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "gas": 3,
+    "online": 2,
+    "groceries": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "boapremium",
+   "name": "Premium Rewards",
+   "issuer": "Bank of America",
+   "baseRate": 1.5,
+   "pointValueCents": 1.0,
+   "annualFee": 95,
+   "rates": {
+    "dining": 2,
+    "travel": 2
+   },
+   "credits": [
+    {
+     "title": "Airline incidental credit",
+     "amount": 100,
+     "period": "annual",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "apple",
+   "name": "Apple Card",
+   "issuer": "Goldman Sachs",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "online": 2,
+    "dining": 2,
+    "transit": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "bilt",
+   "name": "Bilt Mastercard",
+   "issuer": "Bilt",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 3,
+    "travel": 2,
+    "transit": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "usbaltr",
+   "name": "Altitude Go",
+   "issuer": "U.S. Bank",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "dining": 4,
+    "gas": 2,
+    "streaming": 2,
+    "groceries": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "usbres",
+   "name": "Altitude Reserve",
+   "issuer": "U.S. Bank",
+   "baseRate": 1,
+   "pointValueCents": 1.5,
+   "annualFee": 400,
+   "rates": {
+    "travel": 5,
+    "dining": 3
+   },
+   "credits": [
+    {
+     "title": "Travel & dining credit",
+     "amount": 325,
+     "period": "annual",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "usbcash",
+   "name": "Cash+",
+   "issuer": "U.S. Bank",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "gas": 5,
+    "groceries": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "marriott",
+   "name": "Marriott Bonvoy Boundless",
+   "issuer": "Chase",
+   "baseRate": 2,
+   "pointValueCents": 0.8,
+   "annualFee": 95,
+   "rates": {
+    "travel": 6,
+    "dining": 3,
+    "gas": 3,
+    "groceries": 3
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "prime",
+   "name": "Prime Visa",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.0,
+   "annualFee": 0,
+   "rates": {
+    "online": 5,
+    "dining": 2,
+    "gas": 2,
+    "transit": 2,
+    "drugstores": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "unitedexp",
+   "name": "United Explorer",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.2,
+   "annualFee": 150,
+   "rates": {
+    "dining": 2,
+    "travel": 2
+   },
+   "credits": [
+    {
+     "title": "United hotel credit",
+     "amount": 50,
+     "period": "annual",
+     "note": ""
+    },
+    {
+     "title": "Rideshare credit",
+     "amount": 10,
+     "period": "monthly",
+     "note": ""
+    }
+   ],
+   "status": "unverified"
+  },
+  {
+   "id": "aaplat",
+   "name": "Citi AAdvantage Platinum Select",
+   "issuer": "Citi",
+   "baseRate": 1,
+   "pointValueCents": 1.4,
+   "annualFee": 99,
+   "rates": {
+    "gas": 2,
+    "dining": 2,
+    "travel": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  },
+  {
+   "id": "southwest",
+   "name": "Southwest Rapid Rewards Plus",
+   "issuer": "Chase",
+   "baseRate": 1,
+   "pointValueCents": 1.4,
+   "annualFee": 69,
+   "rates": {
+    "transit": 2,
+    "streaming": 2,
+    "travel": 2
+   },
+   "credits": [],
+   "status": "unverified"
+  }
+ ]
+}
