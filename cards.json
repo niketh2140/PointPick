@@ -1,5 +1,5 @@
 {
- "version": 4,
+ "version": 5,
  "updated": "2026-11-20",
  "cards": [
   {
@@ -382,7 +382,8 @@
      "title": "Travel credit",
      "amount": 300,
      "period": "annual",
-     "note": "Applies automatically to travel purchases"
+     "note": "Applies automatically to travel purchases",
+     "anniversary": true
     },
     {
      "title": "The Edit hotel credit",
@@ -400,25 +401,30 @@
      "title": "StubHub / viagogo credit",
      "amount": 150,
      "period": "semiannual",
-     "note": "Activation required"
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "DoorDash promos",
      "amount": 35,
      "period": "monthly",
-     "note": "Promos, not statement credits; activation required"
+     "note": "Promos, not statement credits",
+     "needsActivation": true
     },
     {
      "title": "Peloton credit",
      "amount": 10,
      "period": "monthly",
-     "note": "Activation required"
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "Lyft credit",
      "amount": 10,
      "period": "monthly",
-     "note": "In-app credit; through Sep 30, 2027"
+     "note": "In-app credit; through Sep 30, 2027",
+     "needsActivation": true,
+     "ends": "2027-09-30"
     }
    ],
    "status": "verified",
@@ -443,25 +449,29 @@
      "title": "Dining credit",
      "amount": 10,
      "period": "monthly",
-     "note": "Grubhub, Buffalo Wild Wings, Five Guys, Cheesecake Factory, Wonder"
+     "note": "Grubhub, Buffalo Wild Wings, Five Guys, Cheesecake Factory, Wonder",
+     "needsActivation": true
     },
     {
      "title": "Uber Cash",
      "amount": 10,
      "period": "monthly",
-     "note": "U.S. rides and Uber Eats"
+     "note": "U.S. rides and Uber Eats",
+     "needsActivation": true
     },
     {
      "title": "Resy credit",
      "amount": 50,
      "period": "semiannual",
-     "note": ""
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "Dunkin' credit",
      "amount": 7,
      "period": "monthly",
-     "note": "U.S. locations"
+     "note": "U.S. locations",
+     "needsActivation": true
     }
    ],
    "status": "verified",
@@ -488,13 +498,15 @@
      "title": "Uber Cash",
      "amount": 15,
      "period": "monthly",
-     "note": "Plus $20 extra in December"
+     "note": "Plus $20 extra in December",
+     "needsActivation": true
     },
     {
      "title": "Uber One credit",
      "amount": 120,
      "period": "annual",
-     "note": "Requires an Uber One membership"
+     "note": "Requires an Uber One membership",
+     "needsActivation": true
     },
     {
      "title": "Airline fee credit",
@@ -512,25 +524,29 @@
      "title": "Resy dining credit",
      "amount": 100,
      "period": "quarterly",
-     "note": "Enrollment required"
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "Digital entertainment credit",
      "amount": 25,
      "period": "monthly",
-     "note": "Enrollment required"
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "lululemon credit",
      "amount": 75,
      "period": "quarterly",
-     "note": "Enrollment required"
+     "note": "",
+     "needsActivation": true
     },
     {
      "title": "Walmart+ credit",
      "amount": 13,
      "period": "monthly",
-     "note": "Monthly membership"
+     "note": "Monthly membership",
+     "needsActivation": true
     }
    ],
    "status": "verified",
@@ -1176,13 +1192,15 @@
      "title": "Capital One Travel credit",
      "amount": 300,
      "period": "annual",
-     "note": "Bookings via Capital One Travel"
+     "note": "Bookings via Capital One Travel",
+     "anniversary": true
     },
     {
      "title": "Anniversary bonus (10,000 miles)",
      "amount": 100,
      "period": "annual",
-     "note": "Approx. value at 1\u00a2 per mile"
+     "note": "Approx. value at 1\u00a2 per mile",
+     "anniversary": true
     }
    ],
    "status": "verified",
