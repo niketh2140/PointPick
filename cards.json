@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "updated": "2026-11-20",
  "cards": [
   {
@@ -375,42 +375,53 @@
    "annualFee": 795,
    "rates": {
     "dining": 3,
-    "travel": 4,
-    "transit": 3
+    "travel": 4
    },
    "credits": [
     {
-     "title": "Sapphire Exclusive Tables dining credit",
-     "amount": 150,
-     "period": "semiannual",
-     "note": "OpenTable Exclusive Tables"
+     "title": "Travel credit",
+     "amount": 300,
+     "period": "annual",
+     "note": "Applies automatically to travel purchases"
     },
     {
-     "title": "StubHub credit",
-     "amount": 150,
-     "period": "semiannual",
-     "note": ""
+     "title": "The Edit hotel credit",
+     "amount": 500,
+     "period": "annual",
+     "note": "Max $250 per booking; 2-night minimum"
     },
     {
-     "title": "Chase Travel hotel credit (The Edit)",
-     "amount": 250,
+     "title": "Exclusive Tables dining credit",
+     "amount": 150,
      "period": "semiannual",
-     "note": "Prepaid hotel bookings"
+     "note": "Sapphire Reserve Exclusive Tables restaurants"
+    },
+    {
+     "title": "StubHub / viagogo credit",
+     "amount": 150,
+     "period": "semiannual",
+     "note": "Activation required"
+    },
+    {
+     "title": "DoorDash promos",
+     "amount": 35,
+     "period": "monthly",
+     "note": "Promos, not statement credits; activation required"
     },
     {
      "title": "Peloton credit",
      "amount": 10,
      "period": "monthly",
-     "note": ""
+     "note": "Activation required"
     },
     {
-     "title": "DoorDash credits",
-     "amount": 35,
+     "title": "Lyft credit",
+     "amount": 10,
      "period": "monthly",
-     "note": "Approx. combined value"
+     "note": "In-app credit; through Sep 30, 2027"
     }
    ],
-   "status": "partial",
+   "status": "verified",
    "source": "https://www.chase.com/sapphire-cards/personal/reserve",
    "segment": "personal"
   },
@@ -468,44 +479,62 @@
    },
    "credits": [
     {
-     "title": "Airline fee credit",
-     "amount": 200,
-     "period": "annual",
-     "note": "One selected airline"
+     "title": "Hotel credit",
+     "amount": 300,
+     "period": "semiannual",
+     "note": "Fine Hotels + Resorts / Hotel Collection via Amex Travel; 2-night minimum on some bookings"
     },
     {
      "title": "Uber Cash",
      "amount": 15,
      "period": "monthly",
-     "note": ""
+     "note": "Plus $20 extra in December"
     },
     {
-     "title": "Digital entertainment credit",
-     "amount": 20,
-     "period": "monthly",
-     "note": ""
+     "title": "Uber One credit",
+     "amount": 120,
+     "period": "annual",
+     "note": "Requires an Uber One membership"
     },
     {
-     "title": "CLEAR Plus credit",
+     "title": "Airline fee credit",
+     "amount": 200,
+     "period": "annual",
+     "note": "One selected airline; incidental fees only"
+    },
+    {
+     "title": "CLEAR+ credit",
      "amount": 219,
      "period": "annual",
      "note": ""
     },
     {
+     "title": "Resy dining credit",
+     "amount": 100,
+     "period": "quarterly",
+     "note": "Enrollment required"
+    },
+    {
+     "title": "Digital entertainment credit",
+     "amount": 25,
+     "period": "monthly",
+     "note": "Enrollment required"
+    },
+    {
+     "title": "lululemon credit",
+     "amount": 75,
+     "period": "quarterly",
+     "note": "Enrollment required"
+    },
+    {
      "title": "Walmart+ credit",
      "amount": 13,
      "period": "monthly",
-     "note": ""
-    },
-    {
-     "title": "Hotel credit",
-     "amount": 300,
-     "period": "semiannual",
-     "note": "Fine Hotels + Resorts / Hotel Collection via Amex Travel"
+     "note": "Monthly membership"
     }
    ],
-   "status": "partial",
-   "source": "https://www.nerdwallet.com/article/credit-cards/amex-platinum-hikes-fee-adds-hundreds-in-credits",
+   "status": "verified",
+   "source": "https://www.americanexpress.com/us/credit-cards/card/platinum/",
    "segment": "personal"
   },
   {
