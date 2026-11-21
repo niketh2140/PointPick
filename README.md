@@ -4,6 +4,8 @@ An iOS app for tracking credit card rewards and statement credits, modeled on Ca
 
 Built with SwiftUI and SwiftData. Requires iOS 17+ and Xcode.
 
+Taking over the project? Read [PROJECT.md](PROJECT.md) for architecture, reset rules, catalog sync, gotchas and the roadmap.
+
 ## Features
 
 - **Card catalog:** about 90 US cards from Chase, Amex, Bank of America, Capital One, Bilt, Citi, Barclays, Wells Fargo and Discover, plus American Express business cards. Browse by personal/business and by issuer, with search, sorting and issuer filters.
