@@ -21,7 +21,7 @@ final class CatalogStore {
     private(set) var source = "Bundled"
 
     static let urlKey = "catalogURL"
-    static let defaultURL = "https://raw.githubusercontent.com/niketh2140/pointpick-catalog/main/PointPick/cards.json"
+    static let defaultURL = "https://raw.githubusercontent.com/niketh2140/PointPick/main/PointPick/cards.json"
     var remoteURLString: String {
         get { UserDefaults.standard.string(forKey: Self.urlKey) ?? Self.defaultURL }
         set { UserDefaults.standard.set(newValue.trimmingCharacters(in: .whitespacesAndNewlines), forKey: Self.urlKey) }
