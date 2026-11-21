@@ -75,9 +75,16 @@ enum OfferPeriod: String, Codable, CaseIterable, Identifiable {
     /// End of the current card year (annual credits that follow the card anniversary).
     func anniversaryEnd(containing date: Date, opened: Date, calendar: Calendar = .current) -> Date? {
         let oc = calendar.dateComponents([.month, .day], from: opened)
+        guard let month = oc.month, let day = oc.day else { return nil }
         let yc = calendar.component(.year, from: date)
-        guard var cand = calendar.date(from: DateComponents(year: yc, month: oc.month, day: oc.day)) else { return nil }
-        if cand <= date { cand = calendar.date(byAdding: .year, value: 1, to: cand) ?? cand }
+        func anniversary(in year: Int) -> Date? {
+            // Clamp the day so a Feb 29 open date becomes Feb 28 in non-leap years.
+            guard let first = calendar.date(from: DateComponents(year: year, month: month, day: 1)),
+                  let days = calendar.range(of: .day, in: .month, for: first)?.count else { return nil }
+            return calendar.date(from: DateComponents(year: year, month: month, day: min(day, days)))
+        }
+        guard var cand = anniversary(in: yc) else { return nil }
+        if cand <= date, let next = anniversary(in: yc + 1) { cand = next }
         return cand.addingTimeInterval(-1)
     }
 
@@ -145,13 +152,13 @@ struct CatalogCard: Codable, Identifiable, Hashable {
 @Model
 final class WalletCard {
     var catalogID: String = ""
-    var name: String
-    var issuer: String
-    var baseRate: Double
-    var pointValueCents: Double
-    var annualFee: Double
-    var rates: [String: Double]
-    var addedAt: Date
+    var name: String = ""
+    var issuer: String = ""
+    var baseRate: Double = 1
+    var pointValueCents: Double = 1
+    var annualFee: Double = 0
+    var rates: [String: Double] = [:]
+    var addedAt: Date = Date.now
     var openedDate: Date? = nil
     @Relationship(deleteRule: .cascade, inverse: \Offer.card) var offers: [Offer] = []
 
@@ -174,14 +181,52 @@ final class WalletCard {
             o.needsActivation = credit.needsActivation
             o.anniversary = credit.anniversary
             o.endsOn = endsOn
+            o.fromCatalog = true
             offers.append(o)
         }
+    }
+
+    /// Brings this card in line with the current catalog entry, keeping the user's usage.
+    /// Returns offers to insert and offers to delete so the caller can update the context.
+    func sync(with c: CatalogCard) -> (created: [Offer], removed: [Offer]) {
+        guard catalogID == c.id else { return ([], []) }
+        name = c.name; issuer = c.issuer; baseRate = c.baseRate
+        pointValueCents = c.pointValueCents; annualFee = c.annualFee; rates = c.rates
+        var created: [Offer] = []
+        var removed: [Offer] = []
+        var seen = Set<String>()
+        for credit in c.credits {
+            seen.insert(credit.title)
+            let endsOn = credit.ends.flatMap { Offer.parseEnd($0) }
+            if let o = offers.first(where: { $0.fromCatalog && $0.title == credit.title }) {
+                o.apply(credit, endsOn: endsOn, opened: openedDate)
+            } else if !offers.contains(where: { $0.title == credit.title }) {
+                let o = Offer(title: credit.title, amount: credit.amount, period: credit.period,
+                              expiry: Offer.initialExpiry(period: credit.period, anniversary: credit.anniversary, opened: openedDate, endsOn: endsOn),
+                              card: self)
+                o.note = credit.note; o.needsActivation = credit.needsActivation
+                o.anniversary = credit.anniversary; o.endsOn = endsOn; o.fromCatalog = true
+                created.append(o)
+            }
+        }
+        // Credits the catalog dropped: remove if never touched, otherwise let them run out.
+        for o in offers where o.fromCatalog && !seen.contains(o.title) {
+            if o.usedAmount == 0 && o.lifetimeSaved == 0 { removed.append(o) }
+            else if o.endsOn == nil { o.endsOn = o.expiry ?? .now }
+        }
+        return (created, removed)
     }
 
     /// Recompute anniversary-based offers after the card's open date changes.
     func applyOpenedDate() {
         for o in offers where o.anniversary {
+            let old = o.expiry
             o.expiry = Offer.initialExpiry(period: o.period, anniversary: true, opened: openedDate, endsOn: o.endsOn)
+            guard let new = o.expiry, new != old, o.period == .annual else { continue }
+            // Keep this period's usage only if it happened inside the new card year.
+            let cal = Calendar.current
+            let start = cal.date(byAdding: .year, value: -1, to: new.addingTimeInterval(1)) ?? .distantPast
+            if let last = o.lastUsedAt, last < start { o.resetPeriodUsage() }
         }
     }
 
@@ -195,13 +240,15 @@ final class WalletCard {
 
 @Model
 final class Offer {
-    var title: String
+    var title: String = ""
     var note: String = ""
-    var amount: Double
+    var amount: Double = 0
     var periodRaw: String = OfferPeriod.once.rawValue
     var expiry: Date?
-    var used: Bool
+    var used: Bool = false
     var usedAt: Date?
+    var lastUsedAt: Date? = nil         // last time usage was changed (any amount)
+    var fromCatalog: Bool = false       // created from the catalog, so catalog updates may change it
     var usedAmount: Double = 0          // used in the current period
     var lifetimeSaved: Double = 0       // across all periods
     var redeemedCount: Int = 0
@@ -226,10 +273,31 @@ final class Offer {
         let clamped = min(max(v, 0), amount)
         lifetimeSaved = max(0, lifetimeSaved + (clamped - usedAmount))
         usedAmount = clamped
+        lastUsedAt = clamped > 0 ? .now : nil
         let was = used
         used = clamped >= amount
         if used && !was { redeemedCount += 1; usedAt = .now }
         if !used && was { redeemedCount = max(0, redeemedCount - 1); usedAt = nil }
+    }
+
+    /// Clears this period's usage without touching lifetime totals.
+    func resetPeriodUsage() {
+        let wasUsed = used
+        used = false; usedAmount = 0; usedAt = nil; lastUsedAt = nil
+        if wasUsed { redeemedCount = max(0, redeemedCount - 1) }
+    }
+
+    /// Applies updated catalog data to an existing offer, keeping usage.
+    func apply(_ credit: CatalogCredit, endsOn newEnds: Date?, opened: Date?) {
+        let scheduleChanged = credit.period != period || credit.anniversary != anniversary || newEnds != endsOn
+        title = credit.title; note = credit.note; amount = credit.amount
+        periodRaw = credit.period.rawValue
+        needsActivation = credit.needsActivation; anniversary = credit.anniversary; endsOn = newEnds
+        if scheduleChanged {
+            expiry = Offer.initialExpiry(period: credit.period, anniversary: credit.anniversary, opened: opened, endsOn: newEnds)
+        }
+        if usedAmount > amount { setUsedAmount(amount) }
+        else if usedAmount < amount, used { used = false; redeemedCount = max(0, redeemedCount - 1) }
     }
 
     func toggleUsed() { setUsedAmount(used ? 0 : amount) }
@@ -246,7 +314,7 @@ final class Offer {
             if let endsOn, e >= endsOn { e = endsOn; break }
         }
         expiry = e
-        used = false; usedAmount = 0; usedAt = nil
+        used = false; usedAmount = 0; usedAt = nil; lastUsedAt = nil
     }
 
     static func parseEnd(_ s: String) -> Date? {

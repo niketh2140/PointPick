@@ -13,6 +13,8 @@ enum AppTab: Hashable { case forYou, pointers, offers, cards, search }
 
 struct RootView: View {
     @Environment(\.modelContext) private var context
+    @Environment(\.scenePhase) private var scenePhase
+    private let store = CatalogStore.shared
     @State private var tab: AppTab = {
         switch UserDefaults.standard.string(forKey: "startTab") {
         case "search": .search
@@ -30,6 +32,9 @@ struct RootView: View {
             MyCardsView().tag(AppTab.cards).tabItem { Label("Cards", systemImage: "creditcard.fill") }
             BrowseView().tag(AppTab.search).tabItem { Label("Search", systemImage: "magnifyingglass") }
         }
+        .task { await store.refresh() }                       // pull the latest catalog at launch
+        .task(id: store.version) { syncWallet() }             // push catalog changes into owned cards
+        .onChange(of: scenePhase) { _, phase in if phase == .active { rollOffers() } }
         .tint(Theme.accent)
         .preferredColorScheme(.dark)
         #if DEBUG
@@ -44,5 +49,25 @@ struct RootView: View {
             if let o = (try? context.fetch(FetchDescriptor<Offer>()))?.first(where: { $0.title.hasPrefix("DoorDash") }) { o.setUsedAmount(15) }
         }
         #endif
+    }
+
+    /// Resets recurring credits whose period has ended. Runs at launch and whenever the app comes forward.
+    private func rollOffers() {
+        let offers = (try? context.fetch(FetchDescriptor<Offer>())) ?? []
+        offers.forEach { $0.rolloverIfNeeded() }
+    }
+
+    /// Updates cards in My Cards from the current catalog, keeping the user's usage.
+    private func syncWallet() {
+        let byID = Dictionary(store.cards.map { ($0.id, $0) }, uniquingKeysWith: { a, _ in a })
+        let wallet = (try? context.fetch(FetchDescriptor<WalletCard>())) ?? []
+        for card in wallet {
+            guard let c = byID[card.catalogID] else { continue }
+            let result = card.sync(with: c)
+            result.created.forEach { context.insert($0) }
+            result.removed.forEach { context.delete($0) }
+        }
+        rollOffers()
+        try? context.save()
     }
 }

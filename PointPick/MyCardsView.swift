@@ -5,6 +5,7 @@ struct MyCardsView: View {
     @Environment(\.modelContext) private var context
     @Query(sort: \WalletCard.addedAt) private var cards: [WalletCard]
     @State private var showCustom = false
+    @State private var pendingDelete: WalletCard?
 
     var body: some View {
         NavigationStack {
@@ -22,12 +23,12 @@ struct MyCardsView: View {
                         }
                     }
                 }
-                .onDelete { idx in idx.forEach { context.delete(cards[$0]) } }
+                .onDelete { idx in pendingDelete = idx.first.map { cards[$0] } }
             }
             .overlay {
                 if cards.isEmpty {
                     ContentUnavailableView("No cards yet", systemImage: "creditcard",
-                        description: Text("Add cards from the Browse tab, or tap + to enter a custom card."))
+                        description: Text("Add cards from the Search tab, or tap + to enter a custom card."))
                 }
             }
             .navigationTitle("Cards")
@@ -39,6 +40,9 @@ struct MyCardsView: View {
                 }
             }
             .sheet(isPresented: $showCustom) { CustomCardView(onSave: {}) }
+            .confirmationDialog("Remove this card and its offers?", isPresented: Binding(get: { pendingDelete != nil }, set: { if !$0 { pendingDelete = nil } }), titleVisibility: .visible) {
+                Button("Remove", role: .destructive) { if let c = pendingDelete { context.delete(c) }; pendingDelete = nil }
+            }
             .onAppear { cards.flatMap(\.offers).forEach { $0.rolloverIfNeeded() } }
         }
     }
@@ -123,6 +127,7 @@ struct OfferRow: View {
                 Image(systemName: offer.used ? "checkmark.square.fill" : "square")
                     .font(.title2).foregroundStyle(offer.used ? Color.green : .secondary)
             }.buttonStyle(.borderless)
+                .accessibilityLabel(offer.used ? "Mark \(offer.title) as unused" : "Mark \(offer.title) as used")
             VStack(alignment: .leading, spacing: 3) {
                 Text(offer.title).strikethrough(offer.used).font(.body)
                 Text([showCard ? offer.card?.name : nil, offer.period == .once ? nil : offer.period.title, offer.note.isEmpty ? nil : offer.note]
