@@ -1,6 +1,6 @@
 {
- "version": 5,
- "updated": "2026-11-20",
+ "version": 6,
+ "updated": "2026-11-21",
  "cards": [
   {
    "id": "csp",
@@ -13,7 +13,6 @@
    "rates": {
     "dining": 3,
     "gas": 3,
-    "online": 3,
     "streaming": 3,
     "travel": 2,
     "transit": 2
@@ -23,11 +22,33 @@
      "title": "Chase Travel hotel credit",
      "amount": 100,
      "period": "annual",
-     "note": "Per Chase's page; some sites still list $50"
+     "note": "Prepaid hotel stays booked through Chase Travel. Raised from $50 on Jun 15, 2026. Resets on card anniversary.",
+     "anniversary": true
+    },
+    {
+     "title": "DoorDash promo",
+     "amount": 10,
+     "period": "monthly",
+     "note": "One qualifying non-restaurant order per month; needs DashPass activated (through Dec 31, 2029). Promo, not a statement credit.",
+     "needsActivation": true
+    },
+    {
+     "title": "Apple TV subscription",
+     "amount": 180,
+     "period": "once",
+     "note": "One year free. Activate in Chase app/site by Dec 31, 2026.",
+     "needsActivation": true,
+     "ends": "2026-12-31"
+    },
+    {
+     "title": "Global Entry / TSA PreCheck / NEXUS",
+     "amount": 120,
+     "period": "once",
+     "note": "Once every 4 years when the application fee is paid with this card."
     }
    ],
-   "status": "partial",
-   "source": "https://www.chase.com/sapphire-cards/personal/preferred"
+   "status": "verified",
+   "source": "https://media.chase.com/news/Meet-the-New-Chase-Sapphire-Preferred"
   },
   {
    "id": "cff",
@@ -38,12 +59,21 @@
    "pointValueCents": 1.0,
    "annualFee": 0,
    "rates": {
+    "travel": 5,
     "dining": 3,
-    "drugstores": 3,
-    "travel": 1
+    "drugstores": 3
    },
-   "credits": [],
-   "status": "unverified"
+   "credits": [
+    {
+     "title": "DoorDash promo",
+     "amount": 10,
+     "period": "quarterly",
+     "note": "One non-restaurant order per quarter; needs DashPass activated.",
+     "needsActivation": true
+    }
+   ],
+   "status": "partial",
+   "source": "https://creditcards.chase.com/cash-back-credit-cards/freedom/flex"
   },
   {
    "id": "cfu",
@@ -54,12 +84,21 @@
    "pointValueCents": 1.0,
    "annualFee": 0,
    "rates": {
+    "travel": 5,
     "dining": 3,
-    "drugstores": 3,
-    "travel": 1
+    "drugstores": 3
    },
-   "credits": [],
-   "status": "unverified"
+   "credits": [
+    {
+     "title": "DoorDash promo",
+     "amount": 10,
+     "period": "quarterly",
+     "note": "One non-restaurant order per quarter; needs DashPass activated.",
+     "needsActivation": true
+    }
+   ],
+   "status": "verified",
+   "source": "https://creditcards.chase.com/cash-back-credit-cards/freedom/unlimited"
   },
   {
    "id": "cfr",
@@ -590,8 +629,17 @@
     "transit": 3,
     "gas": 3
    },
-   "credits": [],
-   "status": "unverified"
+   "credits": [
+    {
+     "title": "Disney Bundle streaming credit",
+     "amount": 10,
+     "period": "monthly",
+     "note": "Disney+, Hulu, ESPN bundles. Enrollment required; no minimum spend. Amex page unreadable, per TPG Aug 2025.",
+     "needsActivation": true
+    }
+   ],
+   "status": "partial",
+   "source": "https://www.americanexpress.com/us/credit-cards/card/blue-cash-preferred/"
   },
   {
    "id": "amexbce",
@@ -606,8 +654,17 @@
     "online": 3,
     "gas": 3
    },
-   "credits": [],
-   "status": "unverified"
+   "credits": [
+    {
+     "title": "Disney Bundle streaming credit",
+     "amount": 7,
+     "period": "monthly",
+     "note": "Disney+, Hulu, ESPN bundles. Enrollment required; no minimum spend. Amex page unreadable, per TPG Aug 2025.",
+     "needsActivation": true
+    }
+   ],
+   "status": "partial",
+   "source": "https://www.americanexpress.com/us/credit-cards/card/blue-cash-everyday"
   },
   {
    "id": "amexeveryday",
@@ -1066,11 +1123,11 @@
    "annualFee": 0,
    "rates": {
     "gas": 3,
-    "online": 2,
     "groceries": 2
    },
    "credits": [],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.bankofamerica.com/credit-cards/products/cash-back-credit-card/"
   },
   {
    "id": "boaunl",
@@ -1199,7 +1256,7 @@
      "title": "Anniversary bonus (10,000 miles)",
      "amount": 100,
      "period": "annual",
-     "note": "Approx. value at 1\u00a2 per mile",
+     "note": "Approx. value at 1¢ per mile",
      "anniversary": true
     }
    ],
@@ -1281,15 +1338,15 @@
    "segment": "personal",
    "baseRate": 1,
    "pointValueCents": 1.0,
-   "annualFee": 0,
+   "annualFee": 39,
    "rates": {
     "dining": 3,
     "groceries": 3,
-    "streaming": 3,
-    "travel": 1
+    "streaming": 3
    },
    "credits": [],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.capitalone.com/credit-cards/products/savorone-cash-rewards/"
   },
   {
    "id": "c1walmart",
@@ -1353,10 +1410,17 @@
      "title": "Bilt Cash",
      "amount": 200,
      "period": "annual",
-     "note": ""
+     "note": "Calendar year in 2026; moves to card anniversary in 2027."
+    },
+    {
+     "title": "Bilt Travel hotel credit",
+     "amount": 200,
+     "period": "semiannual",
+     "note": "Two $200 credits per year (Jan-Jun, Jul-Dec). Book 2+ nights via Bilt Travel by Jun 30 / Dec 31. Primary cardholder only."
     }
    ],
-   "status": "unverified"
+   "status": "partial",
+   "source": "https://www.bilt.com/terms/bilt-card-offer-terms"
   },
   {
    "id": "citidc",
@@ -1393,21 +1457,21 @@
    "pointValueCents": 1.0,
    "annualFee": 95,
    "rates": {
+    "travel": 3,
     "dining": 3,
     "groceries": 3,
-    "gas": 3,
-    "travel": 3,
-    "transit": 3
+    "gas": 3
    },
    "credits": [
     {
      "title": "Hotel benefit",
      "amount": 100,
      "period": "annual",
-     "note": "Booked via cititravel.com"
+     "note": "$100 off one hotel stay of $500+ (before taxes), booked through Citi Travel. Calendar year."
     }
    ],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.citi.com/credit-cards/credit-card-rewards/citi-strata-premier-benefits"
   },
   {
    "id": "citistratacard",
@@ -1418,12 +1482,16 @@
    "pointValueCents": 1.0,
    "annualFee": 0,
    "rates": {
-    "groceries": 5,
-    "gas": 5,
-    "transit": 5
+    "groceries": 3,
+    "gas": 3,
+    "transit": 3,
+    "streaming": 3,
+    "dining": 2,
+    "travel": 5
    },
    "credits": [],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.citi.com/credit-cards/citi-strata-credit-card"
   },
   {
    "id": "citielite",
@@ -1522,7 +1590,8 @@
     "travel": 2
    },
    "credits": [],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://www.citi.com/credit-cards/credit-card-miles/aadvantage-platinum-select-benefits"
   },
   {
    "id": "aaexec",
@@ -1570,13 +1639,14 @@
    },
    "credits": [
     {
-     "title": "Annual JetBlue flight credit",
+     "title": "JetBlue Vacations statement credit",
      "amount": 100,
      "period": "annual",
-     "note": ""
+     "note": "$100 back after buying a JetBlue Vacations package of $100+ with this card. One per year."
     }
    ],
-   "status": "unverified"
+   "status": "verified",
+   "source": "https://cards.barclaycardus.com/banking/cards/jetblue-plus-card/"
   },
   {
    "id": "jetblue",
@@ -1663,12 +1733,21 @@
    "segment": "personal",
    "baseRate": 1,
    "pointValueCents": 1.0,
-   "annualFee": 79,
+   "annualFee": 99,
    "rates": {
-    "travel": 5
+    "dining": 3
    },
-   "credits": [],
-   "status": "unverified"
+   "credits": [
+    {
+     "title": "Frontier $100 flight voucher",
+     "amount": 100,
+     "period": "annual",
+     "note": "Earned each anniversary after $2,500+ in purchases during the card year.",
+     "anniversary": true
+    }
+   ],
+   "status": "partial",
+   "source": "https://cards.barclaycardus.com/banking/cards/frontier-airlines-world-mastercard/"
   },
   {
    "id": "wfactive",
@@ -1680,7 +1759,8 @@
    "annualFee": 0,
    "rates": {},
    "credits": [],
-   "status": "unverified"
+   "status": "partial",
+   "source": "https://www.wellsfargo.com/credit-cards/active-cash/guide-to-benefits/"
   },
   {
    "id": "wfautograph",
@@ -1742,13 +1822,10 @@
    "baseRate": 1,
    "pointValueCents": 1.0,
    "annualFee": 0,
-   "rates": {
-    "gas": 5,
-    "groceries": 5,
-    "online": 5
-   },
+   "rates": {},
    "credits": [],
-   "status": "unverified"
+   "status": "partial",
+   "source": "https://www.discover.com/credit-cards/cash-back/"
   },
   {
    "id": "discoverml",
