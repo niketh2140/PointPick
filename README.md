@@ -1,47 +1,20 @@
 # PointPick
 
+## What
+
 An iOS app for tracking credit card rewards and statement credits, modeled on CardPointers. Browse a master catalog of cards, add the ones you hold, and check off each credit as you use it.
 
-Built with SwiftUI and SwiftData. Requires iOS 17+ and Xcode.
+## Why
 
-Taking over the project? Read [PROJECT.md](PROJECT.md) for architecture, reset rules, catalog sync, gotchas and the roadmap.
+Credit card credits and earn rates are easy to forget. PointPick keeps a catalog of US cards in-repo, lets you track usage on device (SwiftData), and refreshes the catalog from GitHub so data fixes reach installed apps without a new build.
 
-## Features
+## Requirements
 
-- **Card catalog:** about 90 US cards from Chase, Amex, Bank of America, Capital One, Bilt, Citi, Barclays, Wells Fargo and Discover, plus American Express business cards. Browse by personal/business and by issuer, with search, sorting and issuer filters.
-- **My Cards:** add cards from the catalog or create a custom one. Each card shows its credits, earn rates and stats.
-- **Credit tracking:** a checkbox per credit, partial amounts (for example $15 of $35 used) with a progress bar, "needs activation" chips, and end dates.
-- **Resets:** monthly, quarterly, semiannual and annual credits reset on calendar boundaries. Anniversary credits reset on the card's open date, which you set per card.
-- **Offers tab:** every credit across your cards, with Saved and Available totals.
-- **For You:** account summary, expiring soon, offer streak and a breakdown by issuer.
-- **Pointers:** pick a spend category or store and see which of your cards earns the most.
-- **Remote catalog:** card data is downloaded from this repo, so catalog fixes reach the app without a new build.
+- Xcode (current stable)
+- iOS 17+ simulator or device
+- No third-party package dependencies
 
-## Tabs
-
-| Tab | File |
-| --- | --- |
-| For You | `ForYouView.swift` |
-| Pointers | `BestCardView.swift` |
-| Offers | `OffersView.swift` |
-| Cards | `MyCardsView.swift` |
-| Search (catalog) | `BrowseView.swift` |
-
-## Project layout
-
-```
-PointPick/
-├── PointPick.xcodeproj
-└── PointPick/
-    ├── PointPickApp.swift    app entry, tab bar
-    ├── Models.swift          catalog types, SwiftData models, reset logic
-    ├── CatalogStore.swift    bundled/cached/remote catalog loading
-    ├── cards.json            the card catalog
-    ├── Theme.swift           colors and shared UI pieces
-    └── *View.swift           one file per tab
-```
-
-## Running
+## How to run
 
 1. Open `PointPick.xcodeproj` in Xcode.
 2. Pick an iPhone simulator and press Run.
@@ -57,6 +30,41 @@ Debug builds accept launch arguments:
 
 - `-startTab <forYou|pointers|offers|cards|search>` opens a specific tab.
 - `-seedDemo YES` adds two demo cards with some credits marked used.
+
+Taking over the project? Read [PROJECT.md](PROJECT.md) for architecture, reset rules, catalog sync, gotchas and the roadmap.
+
+## Source layout
+
+```text
+PointPick/
+├── PointPick.xcodeproj
+└── PointPick/
+    ├── PointPickApp.swift       app entry, tab bar
+    ├── Models.swift             catalog types, SwiftData, reset
+    ├── CatalogStore.swift       bundled/cached/remote catalog
+    ├── cards.json               card catalog
+    ├── Theme.swift              colors and shared UI
+    └── *View.swift              one file per tab
+```
+
+| Tab | File |
+| --- | --- |
+| For You | `ForYouView.swift` |
+| Pointers | `BestCardView.swift` |
+| Offers | `OffersView.swift` |
+| Cards | `MyCardsView.swift` |
+| Search (catalog) | `BrowseView.swift` |
+
+## Features
+
+- **Card catalog:** about 90 US cards from Chase, Amex, Bank of America, Capital One, Bilt, Citi, Barclays, Wells Fargo and Discover, plus American Express business cards. Browse by personal/business and by issuer, with search, sorting and issuer filters.
+- **My Cards:** add cards from the catalog or create a custom one. Each card shows its credits, earn rates and stats.
+- **Credit tracking:** a checkbox per credit, partial amounts (for example $15 of $35 used) with a progress bar, "needs activation" chips, and end dates.
+- **Resets:** monthly, quarterly, semiannual and annual credits reset on calendar boundaries. Anniversary credits reset on the card's open date, which you set per card.
+- **Offers tab:** every credit across your cards, with Saved and Available totals.
+- **For You:** account summary, expiring soon, offer streak and a breakdown by issuer.
+- **Pointers:** pick a spend category or store and see which of your cards earns the most.
+- **Remote catalog:** card data is downloaded from this repo, so catalog fixes reach the app without a new build.
 
 ## Card catalog
 
